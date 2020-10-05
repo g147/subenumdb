@@ -6,6 +6,10 @@ var subdomainSchema = new Schema({
     type: String,
     required: true
   },
+  addedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+}
 }, {
   timestamps: true
 });

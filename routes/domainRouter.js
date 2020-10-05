@@ -118,8 +118,6 @@ domainRouter.route('/:domainId/subdomains/:subdomainId')
 })
 
 .put(function (req, res, next) {
-    // We delete the existing commment and insert the updated
-    // comment as a new comment
     Domains.findById(req.params.domainId, function (err, domain) {
         if (err) throw err;
         domain.subdomains.id(req.params.subdomainId).remove();

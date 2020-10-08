@@ -81,7 +81,7 @@ domainRouter.route('/:domainId/subdomains')
 .post(function (req, res, next) {
     Domains.findById(req.params.domainId, function (err, domain) {
         if (err) throw err;
-        req.body.addedBy = req.decoded._doc._id;
+        req.body.addedBy = req.user._id;
         domain.subdomains.push(req.body);
         domain.save(function (err, domain) {
             if (err) throw err;
